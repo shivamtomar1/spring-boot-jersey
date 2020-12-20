@@ -55,7 +55,7 @@ public class NavController {
     	 * default date is today
     	 * Returns nav, securities available and requested date to frontend
     	 * 
-    	 * Returns {<date>,<securities>:{<security>:{<totalQty>,<price>,<assetsValue>}},<price>}
+    	 * Returns {<date>,<securities>:{<security>:{<totalQty>,<price>,<assetsValue>}},<nav>}
     	 * 
     	 */
     	logger.info("Calling /nav/getNavValue");
