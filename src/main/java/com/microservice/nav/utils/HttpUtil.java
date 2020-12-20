@@ -41,8 +41,6 @@ public class HttpUtil {
 	    }
         Request request = new Request.Builder()
                 .url(httpBuilder.build())
-                .addHeader("custom-key", "mkyong")  // add request headers
-                .addHeader("User-Agent", "OkHttp Bot")
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
@@ -69,8 +67,6 @@ public class HttpUtil {
 
         Request request = new Request.Builder()
                 .url(this.defaultDomainWithDefaultPath+url)
-                .addHeader("custom-key", "mkyong")  // add request headers
-                .addHeader("User-Agent", "OkHttp Bot")
                 .build();
 
         try (Response response = httpClient.newCall(request).execute()) {
