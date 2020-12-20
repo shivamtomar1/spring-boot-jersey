@@ -1,4 +1,4 @@
-package com.microservice.nav.endopints;
+package com.microservice.nav.controller;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 
 @Service
 @Path("/nav")
-public class NavEndpoint {
+public class NavController {
 	
 	@Autowired
 	private Environment env;
