@@ -82,30 +82,29 @@ public class NavController {
         Matcher dateMatcher = datePattern.matcher(date);
         boolean dateMatched = dateMatcher.find();
     	
-        if(dateMatched) {
-        	securitiesByDate = 
-        			gson.fromJson(generateSecuritiesJsonByDate(),new TypeToken<Map<String,LinkedTreeMap<String,Security>>>(){}.getType());
-        	
-        	logger.debug(securitiesByDate.toString());
-        	
-        	LinkedTreeMap<String,Security> securitiesAtDate = securitiesByDate.getOrDefault(date, null);
-        	
-        	if(securitiesAtDate == null) {
-        		throw new DateNotFoundException("Date not found");
-        	}
-        	else {
-        		// accumulator for nav, asset value of individual securities already calculated in generateSecuritiesJsonByDate
-        		for(Security security: securitiesAtDate.values()) {
-        			nav += security.getAssetsValue();
-        		}
-        		
-        		navObj = new Nav(date,securitiesAtDate,nav);
-        		
-        	}
+        //throw format exception if format incorrect. Stop execution
+        if(!dateMatched) {
+        	throw new FormatException("Format of date is incorrect");
+        }
+
+    	securitiesByDate = 
+    			gson.fromJson(generateSecuritiesJsonByDate(),new TypeToken<Map<String,LinkedTreeMap<String,Security>>>(){}.getType());
+    	
+    	logger.debug(securitiesByDate.toString());
+    	
+    	LinkedTreeMap<String,Security> securitiesAtDate = securitiesByDate.getOrDefault(date, null);
+    	
+    	//throw datenotfoundexception if date not dound in response
+    	if(securitiesAtDate == null) {
+    		throw new DateNotFoundException("Date not found");
     	}
-    	else {
-    		throw new FormatException("Format of date is incorrect");
-    	}
+    	
+		// accumulator for nav, asset value of individual securities already calculated in generateSecuritiesJsonByDate
+		for(Security security: securitiesAtDate.values()) {
+			nav += security.getAssetsValue();
+		}
+		
+		navObj = new Nav(date,securitiesAtDate,nav);
         
         long endTime = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
         
