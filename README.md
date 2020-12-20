@@ -5,13 +5,20 @@ Nav Application is a self contained deployable REST microservice which will retu
 ## Introduction
 
 I have used spring-boot with jersey framework for this project.
-I used spring-boot to have an embedded server. Only requirement to run this is you have Java 1.8 and maven installed on your machine
-Jersey framework is used as a robust JAX-RS framework with easy management of REST Api Paths
-GSON is used along with DAOs with backend API respose schema and response to frontend schema defined in %APP_ROOT%/src/main/java/com/microservice/nav/dao
-okhttp client used to make backend http calls, seperate utility class written in %APP_ROOT%/src/main/java/com/microservice/nav/utils
-Custom Error handlers in %APP_ROOT%/src/main/java/com/microservice/nav/ErrorHandling
-All endpoints to be defined in %APP_ROOT%/src/main/java/com/microservice/nav/endpoints
-log file generated in %APP_ROOT%/logs/server.log
+
+I used spring-boot to have an embedded server. Only requirement to run this is you have Java 1.8 and maven installed on your machine.
+
+Jersey framework is used as a robust JAX-RS framework with easy management of REST Api Paths.
+
+GSON is used along with DAOs with backend API respose schema and response to frontend schema defined in %APP_ROOT%/src/main/java/com/microservice/nav/dao.
+
+okhttp client used to make backend http calls, seperate utility class written in %APP_ROOT%/src/main/java/com/microservice/nav/utils.
+
+Custom Error handlers in %APP_ROOT%/src/main/java/com/microservice/nav/ErrorHandling.
+
+All endpoints to be defined in %APP_ROOT%/src/main/java/com/microservice/nav/endpoints.
+
+log file generated in %APP_ROOT%/logs/server.log.
 
 
 ## Installation
