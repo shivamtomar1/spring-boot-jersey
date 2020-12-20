@@ -71,7 +71,8 @@ public class NavController {
     	Nav navObj;
     	
     	//pattern for date is 8 digits, throws error if pattern mismatch
-    	Pattern datePattern = Pattern.compile("[0-9]{8}");
+    	Pattern datePattern = Pattern.compile("([12]\\d{3}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01]))");
+    	
     	
     	//sets default date to today
     	if(date.equalsIgnoreCase("default")) {
