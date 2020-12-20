@@ -9,22 +9,22 @@ import com.google.gson.internal.LinkedTreeMap;
 
 @SuppressWarnings("unused")
 public class Nav {
-	
-	/**
-	 * JSON structure for response of /nav/getNavValue
-	 */
-	
-	private String date;
-	private LinkedTreeMap<String,Security> securities;
-	private double nav;
-	
-	
-	public Nav(String date,LinkedTreeMap<String,Security> securities,double nav) {
-		Gson g = new Gson();
-		this.date = date;
-//		this.securities = new HashMap<String,Security>();
-		
-		this.securities = securities;
-		this.nav = nav;
-	}
+    
+    /**
+     * JSON structure for response of /nav/getNavValue
+     */
+    
+    private String date;
+    private LinkedTreeMap<String,Security> securities;
+    private double nav;
+    
+    
+    public Nav(String date,LinkedTreeMap<String,Security> securities,double nav) {
+        Gson g = new Gson();
+        this.date = date;
+//        this.securities = new HashMap<String,Security>();
+        
+        this.securities = securities;
+        this.nav = nav;
+    }
 }

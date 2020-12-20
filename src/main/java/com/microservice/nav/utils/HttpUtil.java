@@ -16,29 +16,29 @@ import com.microservice.nav.NavApplication;
 //import com.google.gson.Gson;
 
 public class HttpUtil {
-	
-	private OkHttpClient httpClient = new OkHttpClient();
-	
-	private String defaultDomainWithDefaultPath = "";
-	
-	private Logger logger = LoggerFactory.getLogger(NavApplication.class);
-	
-	public HttpUtil(String domain) {
-		this.defaultDomainWithDefaultPath = domain;
-	}
-	
-	public HttpUtil() {}
-	
-	//unused
-	//to be used for requests with queryParams
+    
+    private OkHttpClient httpClient = new OkHttpClient();
+    
+    private String defaultDomainWithDefaultPath = "";
+    
+    private Logger logger = LoggerFactory.getLogger(NavApplication.class);
+    
+    public HttpUtil(String domain) {
+        this.defaultDomainWithDefaultPath = domain;
+    }
+    
+    public HttpUtil() {}
+    
+    //unused
+    //to be used for requests with queryParams
     public String sendGet(String url, HashMap<String,String> params) throws Exception {
-    	HttpUrl.Builder httpBuilder = HttpUrl.parse(this.defaultDomainWithDefaultPath+url).newBuilder();
-    	
-    	if (params != null) {
-	       for(Map.Entry<String, String> param : params.entrySet()) {
-	           httpBuilder.addQueryParameter(param.getKey(),param.getValue());
-	       }
-	    }
+        HttpUrl.Builder httpBuilder = HttpUrl.parse(this.defaultDomainWithDefaultPath+url).newBuilder();
+        
+        if (params != null) {
+           for(Map.Entry<String, String> param : params.entrySet()) {
+               httpBuilder.addQueryParameter(param.getKey(),param.getValue());
+           }
+        }
         Request request = new Request.Builder()
                 .url(httpBuilder.build())
                 .build();
@@ -51,19 +51,19 @@ public class HttpUtil {
             return (response.body().string());
         }
         catch(Exception e) {
-        	e.printStackTrace();
-        	throw new IOException("Unexpected code " + e.toString());//;return "{\"exception\":\""+e.toString()+"\"}";
+            e.printStackTrace();
+            throw new IOException("Unexpected code " + e.toString());//;return "{\"exception\":\""+e.toString()+"\"}";
         }
 
     }
     
     //util to make http get requests
     public String sendGet(String url) throws Exception {
-    	
-    	logger.info("Calling "+this.defaultDomainWithDefaultPath+url);
-    	LocalDateTime now = LocalDateTime.now();
-    	
-    	long startTime = now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        
+        logger.info("Calling "+this.defaultDomainWithDefaultPath+url);
+        LocalDateTime now = LocalDateTime.now();
+        
+        long startTime = now.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
 
         Request request = new Request.Builder()
                 .url(this.defaultDomainWithDefaultPath+url)
@@ -77,12 +77,12 @@ public class HttpUtil {
             return (response.body().string());
         }
         catch(Exception e) {
-        	e.printStackTrace();
-        	throw new IOException("Unexpected code " + e.toString());
-//        	return "{\"exception\":\""+e.toString()+"\"}";
+            e.printStackTrace();
+            throw new IOException("Unexpected code " + e.toString());
+//            return "{\"exception\":\""+e.toString()+"\"}";
         }
         finally {
-        	long endTime = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+            long endTime = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
             
             logger.info("Time taken for "+this.defaultDomainWithDefaultPath+url+" "+(endTime-startTime)+"ms");
         }

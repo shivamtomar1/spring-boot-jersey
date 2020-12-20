@@ -12,7 +12,7 @@ public class GenericExceptionMapper extends Throwable implements ExceptionMapper
     @Override
     public Response toResponse(Throwable exception)
     {
-    	exception.printStackTrace();
+        exception.printStackTrace();
         return Response.status(500).entity("Something bad happened. Please try again !!").type("text/plain").build();
     }
 }
