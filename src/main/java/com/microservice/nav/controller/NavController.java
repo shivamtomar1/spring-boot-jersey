@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-import com.microservice.nav.NavApplication;
+// import com.microservice.nav.NavApplication;
 import com.microservice.nav.ErrorHandling.DateNotFoundException;
 import com.microservice.nav.ErrorHandling.FormatException;
 import com.microservice.nav.dao.Holding;
@@ -42,7 +42,7 @@ public class NavController {
     
 //    @Value("${serverUrl.userContent}")
     
-    Logger logger = LoggerFactory.getLogger(NavApplication.class);
+    Logger logger = LoggerFactory.getLogger(NavController.class);
     
     Gson gson = new Gson();
     

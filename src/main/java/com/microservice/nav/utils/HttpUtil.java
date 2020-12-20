@@ -11,7 +11,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.microservice.nav.NavApplication;
+// import com.microservice.nav.NavApplication;
 
 //import com.google.gson.Gson;
 
@@ -21,7 +21,7 @@ public class HttpUtil {
     
     private String defaultDomainWithDefaultPath = "";
     
-    private Logger logger = LoggerFactory.getLogger(NavApplication.class);
+    private Logger logger = LoggerFactory.getLogger(HttpUtil.class);
     
     public HttpUtil(String domain) {
         this.defaultDomainWithDefaultPath = domain;
