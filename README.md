@@ -54,7 +54,7 @@ curl -i localhost:8080/nav/getNavValue?date=20190101
 ```
 Date to be provided in YYYYMMDD format
 
-Default value for date is today's date if none provided
+Default value for date is Runtime Current date if none provided
 
 sample output:
 
