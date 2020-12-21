@@ -4,6 +4,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
  
+/**
+ * 
+ * Generic exception handler
+ * @author Shivam Tomar
+ * 
+ */
 @Provider
 public class GenericExceptionMapper extends Throwable implements ExceptionMapper<Throwable>
 {

@@ -4,12 +4,13 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
+/**
+ * Exception Template for Date not found in responses /nav/getNavValue
+ */
 @Provider
 public class DateNotFoundException extends Exception implements ExceptionMapper<DateNotFoundException> {
 
-    /**
-     * Exception Template for Date not found in responses /nav/getNavValue
-     */
+    
     private static final long serialVersionUID = -8300052716576709995L;
     
     public DateNotFoundException(String s){

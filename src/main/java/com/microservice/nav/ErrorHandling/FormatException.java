@@ -6,12 +6,15 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 
+/**
+ * Exception Template for Date Format Mismatch in responses /nav/getNavValue
+ * @author Shivam Tomar
+ *
+ */
 @Provider
 public class FormatException extends Exception implements ExceptionMapper<FormatException> {
 
-    /**
-     * Exception Template for Date Format Mismatch in responses /nav/getNavValue
-     */
+    
     
 //    Logger logger = LoggerFactory.getLogger(NavApplication.class);
     private static final long serialVersionUID = -2262518668984742328L;

@@ -1,10 +1,12 @@
 package com.microservice.nav.dao;
 
+/**
+ * 
+ * Provide DAO for response from https://raw.githubusercontent.com/arcjsonapi/HoldingValueCalculator/master/api/holding
+ * @author Shivam Tomar
+ */
 public class Holding {
 //    {"date" : "20190101", "security" : "ABC Corporation", "quantity" : 980, "portfolio" : "Growth"}
-    /**
-     * JSON structure for holding response
-     */
     
     private String date;
     private String security;

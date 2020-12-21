@@ -1,5 +1,10 @@
 package com.microservice.nav.dao;
 
+/**
+ * 
+ * Provide DAO to store totalAssetValue, total Quantity and price of securities held on a particular date
+ * @author Shivam Tomar
+ */
 public class Security {
     
     /**
