@@ -46,18 +46,19 @@ public class NavController {
     
     Gson gson = new Gson();
     
+    /**
+     * accepts date in yyyymmdd format
+     * default date is today
+     * Returns nav, securities available and requested date to frontend
+     * 
+     * @return {$date,$securities:{$security:{$totalQty,$price,$assetsValue}},$nav}
+     * 
+     */
     @GET
     @Produces("application/json")
     @Path("/getNavValue")
     public String getNavValue(@DefaultValue("default") @QueryParam("date") String date) throws Exception{
-        /**
-         * accepts date in yyyymmdd format
-         * default date is today
-         * Returns nav, securities available and requested date to frontend
-         * 
-         * Returns {<date>,<securities>:{<security>:{<totalQty>,<price>,<assetsValue>}},<nav>}
-         * 
-         */
+        
         logger.info("Calling /nav/getNavValue");
         LocalDateTime now = LocalDateTime.now();
         
@@ -114,22 +115,26 @@ public class NavController {
         return gson.toJson(navObj);
     }
     
+    /**
+     * 
+     * Gets All securities, quantities and prices for all dates by hitting and merging responses from
+     * https://raw.githubusercontent.com/arcjsonapi/HoldingValueCalculator/master/api/holding
+     * https://raw.githubusercontent.com/arcjsonapi/HoldingValueCalculator/master/api/pricing
+     * 
+     * not using pagination since irrelevant
+     * 
+     * returns JSON string in form {$date:{$security:{$totalQty,$price,$assetsValue}}}
+     * 
+     * date: date in format yyyymmdd
+     * security: name of security
+     * totalQty: total quantity of stock
+     * price: price of security on given date
+     * assetsValue: total asset value of security on given date
+     * @return JSON string in form {$date:{$security:{$totalQty,$price,$assetsValue}}}
+     * @throws Exception
+     */
     public String generateSecuritiesJsonByDate() throws Exception{
-        /**
-         * Gets All securities, quantities and prices for all dates by hitting and merging responses from
-         * https://raw.githubusercontent.com/arcjsonapi/HoldingValueCalculator/master/api/holding
-         * https://raw.githubusercontent.com/arcjsonapi/HoldingValueCalculator/master/api/pricing
-         * 
-         * not using pagination since irrelevant
-         * 
-         * returns JSON string in form {<date>:{<security>:{<totalQty>,<price>,<assetsValue>}}}
-         * 
-         * date: date in format yyyymmdd
-         * security: name of security
-         * totalQty: total quantity of stock
-         * price: price of security on given date
-         * assetsValue: total asset value of security on given date
-         */
+        
         String userContentDataSource = env.getProperty("serverUrl.userContent");
         
         

@@ -1,5 +1,10 @@
 package com.microservice.nav.dao;
 
+/**
+ * 
+ * Provide DAO for response from https://raw.githubusercontent.com/arcjsonapi/HoldingValueCalculator/master/api/pricing
+ * @author Shivam Tomar
+ */
 public class Pricing {
     
 //    {"date" : "20190101", "security" : "ABC Corporation", "price" : 666.63}

@@ -15,6 +15,13 @@ import org.slf4j.LoggerFactory;
 
 //import com.google.gson.Gson;
 
+/**
+ * 
+ * Utility function to make HTTP Calls
+ * @author Shivam Tomar
+ *
+ */
+
 public class HttpUtil {
     
     private OkHttpClient httpClient = new OkHttpClient();
@@ -23,6 +30,10 @@ public class HttpUtil {
     
     private Logger logger = LoggerFactory.getLogger(HttpUtil.class);
     
+    /**
+     * 
+     * @param domain Default domain to be instanciated while creating object
+     */
     public HttpUtil(String domain) {
         this.defaultDomainWithDefaultPath = domain;
     }
@@ -31,6 +42,16 @@ public class HttpUtil {
     
     //unused
     //to be used for requests with queryParams
+    /**
+     * 
+     * To be used if need to pass queryParameters with request
+     * 
+     * @param url endpoint to connect
+     * @param params quetyParams
+     * @return Response in String Format
+     * @throws Exception Exception while calling service
+     * 
+     */
     public String sendGet(String url, HashMap<String,String> params) throws Exception {
         HttpUrl.Builder httpBuilder = HttpUrl.parse(this.defaultDomainWithDefaultPath+url).newBuilder();
         
@@ -57,6 +78,14 @@ public class HttpUtil {
 
     }
     
+    /**
+     * 
+     * To be used if no query param in request
+     * @param url endpoint to connect
+     * @return Response in string format
+     * @throws Exception Generic HTTP Exception
+     * 
+     */
     //util to make http get requests
     public String sendGet(String url) throws Exception {
         
